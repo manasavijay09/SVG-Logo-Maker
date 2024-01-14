@@ -1,0 +1,29 @@
+{
+  "name": "svg-logo-maker",
+  "version": "1.0.0",
+  "description": "OOPs concept",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/manasavijay09/SVG-Logo-Maker.git"
+  },
+  "keywords": [
+    "node",
+    "js"
+  ],
+  "author": "Manasa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/manasavijay09/SVG-Logo-Maker/issues"
+  },
+  "homepage": "https://github.com/manasavijay09/SVG-Logo-Maker#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
+}
