@@ -21,7 +21,7 @@ function init() {
       },
       {
         type: "list",
-        name: "Shape",
+        name: "shape",
         message: "Enter the shape",
         choices: ["Circle", "Triangle", "Square"],
       },
@@ -33,28 +33,24 @@ function init() {
     ])
     .then((response) => {
       console.log(response);
-      switch (response.Shape) {
+      const{shape,shapeColor,text,textColor}=response
+      switch (shape) {
         case "Circle":
-          const mycircle = new Circle(response.shapeColor);
-          return { render: mycircle.render(), response: response };
-          
+          const mycircle = new Circle(shapeColor,text,textColor);
+          return mycircle.render()
+         
         case "Square":
-          const myLogo2 = new Square(response.shapeColor);
-          return { render: myLogo2.render(), response: response };
-
+          const myLogo2 = new Square(shapeColor,text,textColor);
+          return  myLogo2.render()
+         
         case "Triangle":
-          const myLogo3 = new Triangle(response.shapeColor);
-          return { render: myLogo3.render(), response: response };
+          const myLogo3 = new Triangle(shapeColor,text,textColor);
+          return myLogo3.render()
       }
     })
-    .then((result) => {
-        console.log(result)
-        const mylogo=new Svg();
-        mylogo.setText(result.response.text,result.response.textColor)
-        mylogo.setshapeElement(result.render)
-        return mylogo.render()
+    
 
-    }).then((svgText) => {
+    .then((svgText) => {
         console.log(svgText)
       fs.writeFileSync("Generatedlogo.svg",svgText,function (err, data) {
           if (err) throw err;
